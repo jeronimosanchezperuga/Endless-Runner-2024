@@ -837,7 +837,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: HallwayTile
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4739807074952594973, guid: a7a08b978d2978648b5e32529d3db3ec, type: 3}
+    - {fileID: 8051897083860435133, guid: a7a08b978d2978648b5e32529d3db3ec, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a7a08b978d2978648b5e32529d3db3ec, type: 3}
 --- !u!4 &978308670955452152 stripped
 Transform:
