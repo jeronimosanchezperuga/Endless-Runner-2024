@@ -22,12 +22,19 @@ public class RigidbodyControls : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (inputX != 0) { movementVector.x = inputX * speed; }
-        if (inputX == 0) { movementVector.x -= (rb.velocity.x * movementDamp); }
+        //Con MovePosition
+        forwardMovement = transform.forward * speed * Time.fixedDeltaTime;
+        horizontalMovement = transform.right * inputX * sideMovementSpeed * Time.fixedDeltaTime;
+        rb.MovePosition(rb.position + forwardMovement + horizontalMovement);
+
+        /*Con ForceMode.VelocityChange, pero está muy raro
+        if (inputX != 0) { movementVector.x = inputX * speed * Time.fixedDeltaTime; }
+        if (inputX == 0) { movementVector.x -= (rb.velocity.x * movementDamp * Time.fixedDeltaTime); }
 
         currentVelocity = rb.velocity;
         rb.AddForce(transform.forward + movementVector * speed * Time.fixedDeltaTime, ForceMode.VelocityChange);
         rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
+        */
 
         /* Cambiando la velocity 
          * (dicen que no conviene, anda pero puede traer problema con las colisiones)
