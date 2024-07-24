@@ -12,15 +12,17 @@ public class GroundTile : MonoBehaviour
         groundSpawner = FindObjectOfType<GroundSpawner>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerExit(Collider other)
     {
+        //groundSpawner.SpawnGroundTile();
+        //Destroy(gameObject,2);
+        Invoke(nameof(RelocateTile),2);
         
     }
 
-    private void OnTriggerExit(Collider other)
+    void RelocateTile()
     {
-        groundSpawner.SpawnGroundTile();
-        Destroy(gameObject,2);
+        transform.position = groundSpawner.spawnPoint.transform.position;
+        groundSpawner.spawnPoint = transform.GetChild(1).gameObject;
     }
 }
