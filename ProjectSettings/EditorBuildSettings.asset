@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/EndlessRunner_Game_NonCurved.unity
+    guid: e6e4dfe3b95a1b6488c2b4fd372a667d
   m_configObjects: {}
