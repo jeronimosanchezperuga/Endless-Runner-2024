@@ -16,6 +16,7 @@ public class GroundTile : MonoBehaviour
     {
         //groundSpawner.SpawnGroundTile();
         //Destroy(gameObject,2);
+        CancelInvoke();
         Invoke(nameof(RelocateTile),2);
         
     }
