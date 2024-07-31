@@ -422,7 +422,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 101562698}
   cameraDistance: {x: 0, y: 0, z: 0}
-  cameraCloseness: 0.09
+  followingSpeed: 0.09
   offset: {x: 0, y: 0.99, z: 0.4}
 --- !u!1 &410087039
 GameObject:

@@ -10,14 +10,30 @@ public class RigidbodyControls : MonoBehaviour
     public float movementDamp;
     public float minMaxX;
     [SerializeField] float sideMovementSpeed;
+    [SerializeField] Animator anim;
     float inputX;
     Vector3 horizontalMovement;
     Vector3 forwardMovement;
     Vector3 movementVector;
+    public bool sliding = false;
+    private void Awake()
+    {
+        anim = GetComponentInChildren<Animator>();
+    }
 
     void Update()
+    {        
+        inputX = Input.GetAxis("Horizontal");
+        if (Input.GetAxisRaw("Vertical") < 0 && !sliding)
+        {
+            anim.SetTrigger("Slide");
+            sliding = true;
+        }
+    }
+
+    public void SetSliding(bool val)
     {
-        inputX = Input.GetAxis("Horizontal");        
+        sliding = val;
     }
 
     void FixedUpdate()
