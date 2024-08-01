@@ -2042,6 +2042,11 @@ PrefabInstance:
       propertyPath: brakeAmount
       value: 0.04
       objectReference: {fileID: 0}
+    - target: {fileID: 5785040768343110984, guid: fa1c6fffc2805704ea08e134255f3475,
+        type: 3}
+      propertyPath: accelerationAmount
+      value: 1.1
+      objectReference: {fileID: 0}
     - target: {fileID: 5785040768343110985, guid: fa1c6fffc2805704ea08e134255f3475,
         type: 3}
       propertyPath: m_LocalPosition.x
