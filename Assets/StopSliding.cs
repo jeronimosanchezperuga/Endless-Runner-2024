@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class StopSliding : StateMachineBehaviour
 {
+    Animator anim;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
-    //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    
-    //}
+    override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        anim = animator;
+    }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -19,7 +20,7 @@ public class StopSliding : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.GetComponentInParent<RigidbodyControls>().SetSliding(false);
+        //animator.GetComponentInParent<RigidbodyControls>().SetSliding(false);
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
@@ -33,4 +34,8 @@ public class StopSliding : StateMachineBehaviour
     //{
     //    // Implement code that sets up animation IK (inverse kinematics)
     //}
+    public void AllowMovement()
+    {
+        anim.GetComponentInParent<RigidbodyControls>().SetSliding(false);
+    }
 }
