@@ -9,15 +9,46 @@ public class RigidbodyControls : MonoBehaviour
     public float maxSpeed;
     public float movementDamp;
     public float minMaxX;
+    [SerializeField] float desiredSideMovementSpeed;
     [SerializeField] float sideMovementSpeed;
-    float inputX;
+    [SerializeField] float brakeAmount;
+    [SerializeField] Animator anim;
+    public float inputX;
     Vector3 horizontalMovement;
     Vector3 forwardMovement;
     Vector3 movementVector;
+    public bool sliding = false;
+    private void Awake()
+    {
+        anim = GetComponentInChildren<Animator>();
+    }
+
+
 
     void Update()
     {
-        inputX = Input.GetAxis("Horizontal");        
+        if (!sliding)
+        {
+            inputX = Input.GetAxis("Horizontal");
+            if (Input.GetAxisRaw("Vertical") < 0)
+            {
+                anim.SetTrigger("Slide");
+                sliding = true;                
+            }
+
+        }
+        else
+        {
+            sideMovementSpeed -= sideMovementSpeed * brakeAmount;
+        }
+    }
+
+
+
+    public void SetSliding(bool val)
+    {
+        sliding = val;
+        sideMovementSpeed = desiredSideMovementSpeed;
     }
 
     void FixedUpdate()
@@ -27,7 +58,7 @@ public class RigidbodyControls : MonoBehaviour
         horizontalMovement = transform.right * inputX * sideMovementSpeed * Time.fixedDeltaTime;
         rb.MovePosition(rb.position + forwardMovement + horizontalMovement);
         Vector3 clampedPosition = rb.position;
-        if (rb.position.x < minMaxX*-1)
+        if (rb.position.x < minMaxX * -1)
         {
             clampedPosition.x = minMaxX * -1;
         }
