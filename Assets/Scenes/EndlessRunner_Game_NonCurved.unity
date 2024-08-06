@@ -1201,7 +1201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6e7b2ed5419a4b43af6bcf8f7dc9e4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundTile: {fileID: 521405839227823, guid: ee6081b4d4c7ae8449688bc5a002f53e, type: 3}
+  groundTile: {fileID: 521405839227823, guid: b6177638d497ffa49bf86f2bde31b4d2, type: 3}
   mapDisplacer: {fileID: 978376727}
   initialModulesCount: 10
   spawnPoint: {fileID: 65915305}

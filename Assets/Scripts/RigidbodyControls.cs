@@ -8,7 +8,6 @@ public class RigidbodyControls : MonoBehaviour
     public float speed;
     public float maxSpeed;
     public float movementDamp;
-    public float minMaxX;
     [SerializeField] float desiredSideMovementSpeed;
     [SerializeField] float sideMovementSpeed;
     [SerializeField] float brakeAmount;
@@ -41,6 +40,15 @@ public class RigidbodyControls : MonoBehaviour
         {
             sideMovementSpeed -= sideMovementSpeed * brakeAmount;
         }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            transform.Rotate(Vector3.up * 90);
+        }
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            transform.Rotate(Vector3.up * -90);
+        }
     }
 
 
@@ -57,16 +65,7 @@ public class RigidbodyControls : MonoBehaviour
         forwardMovement = transform.forward * speed * Time.fixedDeltaTime;
         horizontalMovement = transform.right * inputX * sideMovementSpeed * Time.fixedDeltaTime;
         rb.MovePosition(rb.position + forwardMovement + horizontalMovement);
-        Vector3 clampedPosition = rb.position;
-        if (rb.position.x < minMaxX * -1)
-        {
-            clampedPosition.x = minMaxX * -1;
-        }
-        if (rb.position.x > minMaxX)
-        {
-            clampedPosition.x = minMaxX;
-        }
-        rb.position = clampedPosition;
+    
 
         /*Con ForceMode.VelocityChange, pero está muy raro
         if (inputX != 0) { movementVector.x = inputX * speed * Time.fixedDeltaTime; }
