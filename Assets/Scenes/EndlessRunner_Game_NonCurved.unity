@@ -14,7 +14,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 1
+  m_Fog: 0
   m_FogColor: {r: 0.5471698, g: 0.4664, b: 0.4000534, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.03
@@ -1203,7 +1203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundTile: {fileID: 521405839227823, guid: b6177638d497ffa49bf86f2bde31b4d2, type: 3}
   mapDisplacer: {fileID: 978376727}
-  initialModulesCount: 10
+  initialModulesCount: 30
   spawnPoint: {fileID: 65915305}
   mapMoves: 0
 --- !u!4 &1013223160
@@ -2041,6 +2041,11 @@ PrefabInstance:
         type: 3}
       propertyPath: brakeAmount
       value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 5785040768343110984, guid: fa1c6fffc2805704ea08e134255f3475,
+        type: 3}
+      propertyPath: accelerationAmount
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 5785040768343110985, guid: fa1c6fffc2805704ea08e134255f3475,
         type: 3}

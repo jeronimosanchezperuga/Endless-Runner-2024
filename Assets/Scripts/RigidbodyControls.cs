@@ -11,6 +11,7 @@ public class RigidbodyControls : MonoBehaviour
     [SerializeField] float desiredSideMovementSpeed;
     [SerializeField] float sideMovementSpeed;
     [SerializeField] float brakeAmount;
+    [SerializeField] float accelerationAmount;
     [SerializeField] Animator anim;
     public float inputX;
     Vector3 horizontalMovement;
@@ -22,17 +23,30 @@ public class RigidbodyControls : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
     }
 
+    IEnumerator MovementSmoother(float acceleration)
+    {
+        sideMovementSpeed = 0.1f;
+        while (sideMovementSpeed < desiredSideMovementSpeed)
+        {
+            yield return new WaitForSeconds(0.1f);
+            sideMovementSpeed += sideMovementSpeed * acceleration;
+            Debug.Log("Smoothing " + sideMovementSpeed);
+        }
+        sideMovementSpeed = desiredSideMovementSpeed;
+        Debug.Log("Done Smoothing");
+    }
 
 
     void Update()
     {
         if (!sliding)
-        {
+        {            
             inputX = Input.GetAxis("Horizontal");
-            if (Input.GetAxisRaw("Vertical") < 0)
+            if (Input.GetKeyDown(KeyCode.S))
             {
                 anim.SetTrigger("Slide");
-                sliding = true;                
+                sliding = true;
+                StopAllCoroutines();
             }
 
         }
@@ -56,7 +70,8 @@ public class RigidbodyControls : MonoBehaviour
     public void SetSliding(bool val)
     {
         sliding = val;
-        sideMovementSpeed = desiredSideMovementSpeed;
+        StartCoroutine(MovementSmoother(accelerationAmount));
+        Debug.Log("Stop sliding");
     }
 
     void FixedUpdate()
