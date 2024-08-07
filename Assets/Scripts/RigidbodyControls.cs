@@ -65,6 +65,10 @@ public class RigidbodyControls : MonoBehaviour
         }
     }
 
+    //IEnumerator RotateCharacter()
+    //{
+    //    Vector3 elapsed = Vector3.Lerp();
+    //}
 
 
     public void SetSliding(bool val)
