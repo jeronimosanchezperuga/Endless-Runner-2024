@@ -1317,7 +1317,6 @@ MonoBehaviour:
   initialModulesCount: 5
   spawnPoint: {fileID: 65915305}
   mapMoves: 0
-  moduleOrientation: {x: 0, y: 0, z: 0}
 --- !u!4 &1013223160
 Transform:
   m_ObjectHideFlags: 0
@@ -1326,7 +1325,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1013223158}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.9829922, y: -3.9485135, z: 4.4476686}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2163,6 +2162,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player_Rigidbody
+      objectReference: {fileID: 0}
+    - target: {fileID: 5785040768343110982, guid: fa1c6fffc2805704ea08e134255f3475,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5785040768343110984, guid: fa1c6fffc2805704ea08e134255f3475,
         type: 3}
