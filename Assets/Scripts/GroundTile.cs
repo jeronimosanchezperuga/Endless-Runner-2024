@@ -24,6 +24,7 @@ public class GroundTile : MonoBehaviour
     void RelocateTile()
     {
         transform.position = groundSpawner.spawnPoint.transform.position;
+        transform.rotation = groundSpawner.spawnPoint.transform.rotation;
         groundSpawner.spawnPoint = transform.GetChild(1).gameObject;
     }
 }

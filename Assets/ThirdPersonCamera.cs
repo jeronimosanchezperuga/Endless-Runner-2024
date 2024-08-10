@@ -21,7 +21,7 @@ public class ThirdPersonCamera : MonoBehaviour
     void FixedUpdate()
     {
         //La cámara se posiciona suavemente detrás del player a una distancia determninada 
-        transform.position = Vector3.Lerp(transform.position, target.position,pLerp);
+        transform.position = Vector3.Lerp(transform.position , target.position + target.forward * cameraDistance.z, pLerp);
         //la cámara se orienta suavemente para mirar en la dirección en la que mira el player
         transform.rotation = Quaternion.Lerp(transform.rotation,target.rotation,rLerp);
     }
