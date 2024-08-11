@@ -1,5 +1,10 @@
 using UnityEngine;
 
+/*
+ * Este script genera el escenario una vez
+ * con una cantidad determinada de módulos
+ */
+
 public class GroundSpawner : MonoBehaviour
 {
     public GameObject[] groundModules;
@@ -7,7 +12,7 @@ public class GroundSpawner : MonoBehaviour
     public int initialModulesCount = 5;
     public GameObject spawnPoint;
     public bool mapMoves = false;
-    // Start is called before the first frame update
+
     void Start()
     {
         spawnPoint = gameObject;
@@ -17,7 +22,6 @@ public class GroundSpawner : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -32,8 +36,7 @@ public class GroundSpawner : MonoBehaviour
         GameObject clon = Instantiate(groundTile, spawnPoint.transform.position, spawnPoint.transform.rotation);
         if (mapMoves) clon.transform.SetParent(mapDisplacer);
         clon.transform.rotation = spawnPoint.transform.rotation;
-        spawnPoint = clon.transform.GetChild(1).gameObject;
-       
+        spawnPoint = clon.transform.GetChild(1).gameObject;       
     }
 
     private GameObject GetGroundTile()

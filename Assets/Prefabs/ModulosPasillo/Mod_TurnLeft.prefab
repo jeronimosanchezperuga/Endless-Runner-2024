@@ -2109,15 +2109,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1206319669159861541, guid: a7a08b978d2978648b5e32529d3db3ec,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 2103121531171786866, guid: a7a08b978d2978648b5e32529d3db3ec,
         type: 3}
       propertyPath: m_Name
-      value: Mod_TurnRight
+      value: Mod_TurnLeft
       objectReference: {fileID: 0}
     - target: {fileID: 2103121531171786866, guid: a7a08b978d2978648b5e32529d3db3ec,
         type: 3}
       propertyPath: m_TagString
-      value: Right
+      value: Left
       objectReference: {fileID: 0}
     - target: {fileID: 3520408419429852026, guid: a7a08b978d2978648b5e32529d3db3ec,
         type: 3}
