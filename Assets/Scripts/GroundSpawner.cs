@@ -41,6 +41,7 @@ public class GroundSpawner : MonoBehaviour
 
     private GameObject GetGroundTile()
     {
+        //establecer probabilidades de modulo
         GameObject chosenTile = groundModules[Random.Range(0,groundModules.Length)];
         return chosenTile;
     }
