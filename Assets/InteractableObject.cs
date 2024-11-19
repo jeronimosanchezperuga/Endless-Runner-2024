@@ -18,4 +18,8 @@ public class InteractableObject : MonoBehaviour
     {
         
     }
+    public void PlayObjectAnimation()
+    {
+        anim.SetTrigger("Open");
+    }
 }

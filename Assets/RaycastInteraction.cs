@@ -28,6 +28,13 @@ public class RaycastInteraction : MonoBehaviour
             }
         }
         uiGO.SetActive(interactable);
+        if (interactable && Input.GetKeyDown(KeyCode.E))
+        {
+            if (interactable.activated)
+            {
+
+            }
+        }
 
     }
 
