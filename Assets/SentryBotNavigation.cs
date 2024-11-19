@@ -6,21 +6,26 @@ using UnityEngine.AI;
 public class SentryBotNavigation : MonoBehaviour
 {
     public Transform targetTR;
-    public Animator anim;
     public NavMeshAgent agent;
+    public float arrivalDistance;
+    public bool isArrived;
 
     // Start is called before the first frame update
     void Awake()
     {
-        anim = transform.GetComponentInChildren<Animator>();
         agent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        agent.destination = targetTR.position;
-        anim.SetFloat("Speed", agent.velocity.magnitude);
+        if (targetTR)
+        {
+            agent.destination = targetTR.position;
+        }
+
+        isArrived = agent.remainingDistance < arrivalDistance;
+        
     }
 
     public void SetDestination(Transform target)
