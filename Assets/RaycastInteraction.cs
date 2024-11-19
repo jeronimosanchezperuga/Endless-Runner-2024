@@ -7,6 +7,7 @@ public class RaycastInteraction : MonoBehaviour
     public Transform rayOrigin;
     public float rayLenght;
     public LayerMask layer;
+    public GameObject uiGO;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,13 +18,23 @@ public class RaycastInteraction : MonoBehaviour
     void Update()
     {
         RaycastHit hit;
+        InteractableObject interactable = null;
         if (Physics.Raycast(rayOrigin.position, rayOrigin.forward, out hit, rayLenght, layer))
         {
-            InteractableObject interactable = hit.collider.GetComponent<InteractableObject>();
+            interactable = hit.collider.GetComponent<InteractableObject>();
             if (interactable)
             {
-
+                
             }
         }
+        uiGO.SetActive(interactable);
+
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(rayOrigin.position, rayOrigin.position + rayOrigin.forward * rayLenght);
+    }
+
 }

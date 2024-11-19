@@ -695,6 +695,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3635c24cfb2a238438b7331ec164c6ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activated: 0
+  anim: {fileID: 0}
 --- !u!1001 &942742380
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1205,10 +1207,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rayOrigin: {fileID: 327919041}
-  rayLenght: 2
+  rayLenght: 3
   layer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
+  uiGO: {fileID: 620978644}
 --- !u!4 &1951352366 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8301348219256438973, guid: d23a71d629ca2cb428e58efdcf5d4c1b,
