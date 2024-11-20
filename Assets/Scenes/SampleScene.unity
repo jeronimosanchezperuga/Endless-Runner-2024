@@ -212,10 +212,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbf5bd0006e641a4c889c0617816c189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetTR: {fileID: 0}
-  agent: {fileID: 0}
-  arrivalDistance: 2
-  isArrived: 0
 --- !u!195 &223348771
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -267,11 +263,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waypointGroup: {fileID: 1269390184}
   waypoints: []
-  botNavigation: {fileID: 0}
   animationManager: {fileID: 0}
-  isPatrolling: 0
+  isPatrolling: 1
   currentWaypoint: 0
   scanTime: 5
+  targetTR: {fileID: 0}
+  agent: {fileID: 0}
+  isArrived: 0
 --- !u!1 &439603984
 GameObject:
   m_ObjectHideFlags: 0
@@ -284,7 +282,7 @@ GameObject:
   m_Layer: 0
   m_Name: WayPoint (1)
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -396,7 +394,7 @@ GameObject:
   m_Layer: 0
   m_Name: WayPoint (3)
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -706,7 +704,7 @@ GameObject:
   m_Layer: 0
   m_Name: WayPoint (2)
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1

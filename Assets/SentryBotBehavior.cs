@@ -2,21 +2,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class SentryBotBehavior : MonoBehaviour
 {
     public GameObject waypointGroup;
     public Transform[] waypoints;
-    [SerializeField] SentryBotNavigation botNavigation;
     [SerializeField] SentryBotAnimationManager animationManager;
     public bool isPatrolling;
     public int currentWaypoint = 0;
     public float scanTime;
+    public Transform targetTR;
+    public NavMeshAgent agent;
+    public bool isArrived;
     // Start is called before the first frame update
+    
+    void Awake()
+    {
+        agent = GetComponent<NavMeshAgent>();
+    }
     void Start()
     {
         UpdateWaypoints();
-        botNavigation = GetComponent<SentryBotNavigation>();
         animationManager = GetComponentInChildren<SentryBotAnimationManager>();
     }
 
@@ -28,18 +35,26 @@ public class SentryBotBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (targetTR)
+        {
+            agent.destination = targetTR.position;
+        }
+
+        isArrived = agent.remainingDistance < agent.stoppingDistance;
+
         if (isPatrolling)
         {
-            if (botNavigation.isArrived)
-            {
-                StartCoroutine(Scan(scanTime));
+            if (isArrived)
+            {                
                 currentWaypoint++;
                 if (currentWaypoint >= waypoints.Length)
                 {
                     currentWaypoint = 0;
                 }
+                Debug.Log("Scan");
+                StartCoroutine(Scan(scanTime));
             }
-            botNavigation.SetDestination(waypoints[currentWaypoint]);
+            agent.destination = waypoints[currentWaypoint].position;
         }
     }
 
@@ -48,9 +63,10 @@ public class SentryBotBehavior : MonoBehaviour
         isPatrolling = false;
         animationManager.OpenDome(true);
         animationManager.CameraScan(true);
+        Debug.Log("Dome open: true");
         yield return new WaitForSeconds(scanTime);
+        Debug.Log("Dome open: false");
         animationManager.OpenDome(false);
-        animationManager.CameraScan(true);
-        isPatrolling=true;
+        animationManager.CameraScan(false);
     }
 }
