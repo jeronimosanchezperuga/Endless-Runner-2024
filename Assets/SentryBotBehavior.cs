@@ -68,5 +68,6 @@ public class SentryBotBehavior : MonoBehaviour
         Debug.Log("Dome open: false");
         animationManager.OpenDome(false);
         animationManager.CameraScan(false);
+        isPatrolling = true;
     }
 }
